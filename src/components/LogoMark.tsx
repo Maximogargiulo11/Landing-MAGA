@@ -1,0 +1,18 @@
+interface LogoMarkProps {
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export default function LogoMark({ className, style }: LogoMarkProps) {
+  return (
+    <svg
+      viewBox="451.75 320.238281 596.488281 640"
+      className={className}
+      style={style}
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M 939.679688 340.246094 L 750.039062 562.710938 L 683.949219 640.238281 L 572.40625 771.09375 L 572.40625 509.382812 L 655.246094 606.566406 L 721.324219 529.042969 L 560.386719 340.246094 L 471.824219 372.863281 L 471.824219 907.613281 L 560.386719 940.230469 L 750.039062 717.765625 L 816.113281 640.238281 L 927.660156 509.382812 L 927.660156 771.09375 L 844.816406 673.90625 L 778.742188 751.425781 L 939.679688 940.230469 L 1028.238281 907.613281 L 1028.238281 372.863281 Z" />
+    </svg>
+  );
+}
