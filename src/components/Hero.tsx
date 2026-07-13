@@ -78,21 +78,23 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: EASE, delay: 1.2 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-10 flex flex-col items-center gap-2"
-      >
-        <ChevronDown
-          size={22}
-          strokeWidth={2}
-          className="text-white/35 animate-bounce-down"
-        />
-        <span className="text-[10px] text-white/28 tracking-[0.2em] font-medium">
-          SCROLL
-        </span>
-      </motion.div>
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 1.2 }}
+          className="flex flex-col items-center gap-2"
+        >
+          <ChevronDown
+            size={22}
+            strokeWidth={2}
+            className="text-white/35 animate-bounce-down"
+          />
+          <span className="text-[10px] text-white/28 tracking-[0.2em] font-medium">
+            SCROLL
+          </span>
+        </motion.div>
+      </div>
     </section>
   );
 }

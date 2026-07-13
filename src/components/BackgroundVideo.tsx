@@ -6,7 +6,10 @@ export default function BackgroundVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress } = useScroll();
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  // Baseline zoom of 1.3 crops the source footage's corner watermark out of
+  // view at every viewport aspect ratio (verified against its pixel bounds);
+  // the scroll-driven zoom keeps the same 0.15 delta on top of that.
+  const scale = useTransform(scrollYProgress, [0, 1], [1.3, 1.45]);
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.62, 0.84]);
 
   useEffect(() => {
@@ -33,8 +36,6 @@ export default function BackgroundVideo() {
         className="absolute inset-0 bg-bg"
         style={{ opacity: overlayOpacity }}
       />
-      {/* Watermark cover */}
-      <div className="absolute bottom-0 right-0 w-[260px] h-[60px] bg-bg z-[2]" />
     </div>
   );
 }
