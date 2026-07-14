@@ -31,13 +31,13 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.5 }}
         >
-          <h1 className="font-bold leading-[1.05] tracking-[-0.03em] text-ink text-[clamp(40px,9vw,95px)]">
+          <h1 className="font-bold leading-[1.05] tracking-[-0.03em] text-ink text-[clamp(30px,6vw,64px)]">
             Optimizamos
             <br />
             y automatizamos
             <br />
             <span
-              className="bg-clip-text text-transparent text-[clamp(34px,8vw,90px)] font-normal not-italic"
+              className="bg-clip-text text-transparent text-[clamp(26px,5.4vw,60px)] font-normal not-italic"
               style={{
                 backgroundImage:
                   'linear-gradient(135deg,#7C3AED,#a78bfa,#38bdf8)',
