@@ -32,9 +32,7 @@ export default function Hero() {
           transition={{ duration: 0.9, ease: EASE, delay: 0.5 }}
         >
           <h1 className="font-bold leading-[1.05] tracking-[-0.03em] text-ink text-[clamp(30px,6vw,64px)]">
-            Optimizamos
-            <br />
-            y automatizamos
+            Hacemos crecer tu negocio
             <br />
             <span
               className="bg-clip-text text-transparent text-[clamp(26px,5.4vw,60px)] font-normal not-italic"
@@ -43,10 +41,10 @@ export default function Hero() {
                   'linear-gradient(135deg,#7C3AED,#a78bfa,#38bdf8)',
               }}
             >
-              el crecimiento
+              automatizando y optimizando
             </span>
             <br />
-            de tu negocio.
+            lo que ya hacés.
           </h1>
         </motion.div>
 
