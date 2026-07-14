@@ -6,6 +6,7 @@ import {
   MessageSquare,
   Smartphone,
   Code2,
+  Workflow,
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react';
@@ -48,6 +49,11 @@ const SERVICES: Service[] = [
     icon: Code2,
     title: 'Mantenimiento Web',
     description: 'Tu web siempre activa, segura y actualizada.',
+  },
+  {
+    icon: Workflow,
+    title: 'Automatización de procesos',
+    description: 'Tareas repetitivas, resueltas solas.',
   },
 ];
 
