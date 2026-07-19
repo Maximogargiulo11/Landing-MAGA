@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
+import { Store, User } from 'lucide-react';
 import { Eyebrow } from './Services';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 interface Testimonial {
   quote: string;
-  initial: string;
+  avatarIcon: typeof User;
   gradient: string;
   name: string;
   subtitle: string;
@@ -15,7 +16,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       'MAGA transformó nuestra tienda online. Las ventas aumentaron y el diseño nos representa a la perfección.',
-    initial: 'B',
+    avatarIcon: Store,
     gradient: 'linear-gradient(135deg,#7C3AED,#a78bfa)',
     name: 'Botines Alta Gama CBA',
     subtitle: 'E-commerce · Córdoba',
@@ -23,17 +24,17 @@ const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       'Profesionalismo total. Entregaron antes del plazo y el resultado superó todas nuestras expectativas.',
-    initial: 'C',
+    avatarIcon: User,
     gradient: 'linear-gradient(135deg,#5B21B6,#7C3AED)',
-    name: 'Cliente satisfecho',
+    name: 'Martina Ibáñez',
     subtitle: 'E-commerce · Argentina',
   },
   {
     quote:
       'El bot de WhatsApp trabaja 24/7 y atiende consultas solo. Una inversión que se pagó sola en semanas.',
-    initial: 'M',
+    avatarIcon: User,
     gradient: 'linear-gradient(135deg,#4C1D95,#6D28D9)',
-    name: 'Emprendedor digital',
+    name: 'Nicolás Ferreyra',
     subtitle: 'Automatización · Córdoba',
   },
 ];
@@ -76,10 +77,10 @@ export default function Testimonials() {
               </p>
               <div className="flex items-center gap-3 border-t border-white/[0.06] pt-4">
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-extrabold text-white shrink-0"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0"
                   style={{ background: t.gradient }}
                 >
-                  {t.initial}
+                  <t.avatarIcon size={17} strokeWidth={2} />
                 </div>
                 <div>
                   <div className="text-[13px] font-bold text-ink">{t.name}</div>
