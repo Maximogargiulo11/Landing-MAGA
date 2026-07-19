@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import portfolio1 from '../assets/images/portfolio-1.jpeg';
 import portfolio2 from '../assets/images/portfolio-2.jpeg';
 import portfolio3 from '../assets/images/portfolio-3-screenshot.png';
@@ -15,7 +17,38 @@ const STATS = [
   { value: '4.9★', label: 'satisfacción' },
 ];
 
+const GALLERY = [
+  { src: portfolio1, alt: 'Botines Alta Gama' },
+  { src: portfolio2, alt: 'Botines Alta Gama' },
+  { src: portfolio3, alt: 'Botines Alta Gama web' },
+  { src: portfolio4, alt: 'Botines Alta Gama' },
+];
+
 export default function Portfolio() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowRight') {
+        setLightboxIndex((i) => (i === null ? i : (i + 1) % GALLERY.length));
+      }
+      if (e.key === 'ArrowLeft') {
+        setLightboxIndex((i) =>
+          i === null ? i : (i - 1 + GALLERY.length) % GALLERY.length,
+        );
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [lightboxIndex]);
+
   return (
     <section id="portafolio" className="relative z-[1] pt-[100px] pb-[140px] px-6">
       <div className="max-w-[900px] mx-auto">
@@ -81,30 +114,84 @@ export default function Portfolio() {
             </div>
 
             <div className="grid grid-cols-2 gap-0.5 bg-accent/10 overflow-hidden">
-              <img
-                src={portfolio1}
-                alt=""
-                className="w-full h-full object-cover object-top"
-              />
-              <img
-                src={portfolio2}
-                alt=""
-                className="w-full h-full object-cover object-top"
-              />
-              <img
-                src={portfolio3}
-                alt="Botines Alta Gama web"
-                className="w-full h-full object-cover object-top"
-              />
-              <img
-                src={portfolio4}
-                alt=""
-                className="w-full h-full object-cover object-top"
-              />
+              {GALLERY.map((img, i) => (
+                <button
+                  key={img.src}
+                  type="button"
+                  onClick={() => setLightboxIndex(i)}
+                  className="block w-full h-full cursor-zoom-in p-0 border-0 bg-transparent"
+                  aria-label={`Ver ${img.alt} en tamaño completo`}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </button>
+              ))}
             </div>
           </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-6"
+            onClick={() => setLightboxIndex(null)}
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(null)}
+              aria-label="Cerrar"
+              className="absolute top-5 right-5 lg rounded-full p-2.5 text-white/70 hover:text-white transition-colors"
+            >
+              <X size={22} />
+            </button>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((i) =>
+                  i === null ? i : (i - 1 + GALLERY.length) % GALLERY.length,
+                );
+              }}
+              aria-label="Anterior"
+              className="absolute left-3 md:left-6 lg rounded-full p-2.5 text-white/70 hover:text-white transition-colors"
+            >
+              <ChevronLeft size={22} />
+            </button>
+
+            <motion.img
+              key={GALLERY[lightboxIndex].src}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.25, ease: EASE }}
+              src={GALLERY[lightboxIndex].src}
+              alt={GALLERY[lightboxIndex].alt}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-[0_0_60px_rgba(0,0,0,0.6)]"
+            />
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex((i) => (i === null ? i : (i + 1) % GALLERY.length));
+              }}
+              aria-label="Siguiente"
+              className="absolute right-3 md:right-6 lg rounded-full p-2.5 text-white/70 hover:text-white transition-colors"
+            >
+              <ChevronRight size={22} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
