@@ -2,3 +2,7 @@ node_modules
 dist
 *.local
 tsconfig.tsbuildinfo
+.env
+.env.*
+!.env.example
+.vercel
