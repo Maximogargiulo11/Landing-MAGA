@@ -45,7 +45,28 @@ Incluye:
 - DIFERENCIAL CLAVE: a diferencia de Tiendanube o Shopify, no se paga
   mensualidad ni comisión por venta. La tienda es 100% tuya.
 
-## Otros servicios (Landing, Sitio institucional, Apps, Bots, Automatización, Mantenimiento)
+## Landing Page — USD 150
+Incluye:
+- Catálogo completo de productos (ej: camisetas y conjuntos), organizado por
+  equipo y categoría.
+- Ficha de cada producto con fotos, descripción, talles disponibles y precio.
+- Botón de "Comprar por WhatsApp" en cada producto: te llega el mensaje ya
+  armado con el modelo que le interesó al cliente.
+- Sección de novedades para los lanzamientos.
+- Diseño mobile-first (pensado para el celular).
+- Dominio propio, hosting y certificado de seguridad.
+- Google Analytics para ver de dónde llega la gente.
+- CÓMO FUNCIONA LA VENTA: la venta la seguís cerrando vos por WhatsApp (como
+  ahora), pero el cliente llega ya sabiendo qué quiere, el talle y el precio.
+
+## Diferencia entre Landing (USD 150) y Tienda online (USD 700)
+- La LANDING es una vidriera: muestra los productos y el cliente te escribe por
+  WhatsApp para comprar (vos cerrás la venta a mano). Ideal para empezar simple.
+- La TIENDA es venta 100% automática: carrito, checkout con Mercado Pago, stock
+  y pedidos, sin que tengas que estar respondiendo cada venta.
+- Si el cliente duda, ayudalo a elegir según lo que necesite y derivá a WhatsApp.
+
+## Otros servicios (Sitio institucional, Apps, Bots, Automatización, Mantenimiento)
 - Todavía no tenés los precios cerrados de estos servicios cargados. Para estos,
   explicá brevemente qué incluyen y derivá a WhatsApp para cotizar según el caso.
 
