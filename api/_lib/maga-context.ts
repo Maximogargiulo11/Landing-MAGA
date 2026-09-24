@@ -66,7 +66,7 @@ Incluye:
   y pedidos, sin que tengas que estar respondiendo cada venta.
 - Si el cliente duda, ayudalo a elegir según lo que necesite y derivá a WhatsApp.
 
-## Bot de WhatsApp / Instagram — USD 200
+## Bot de WhatsApp / Instagram — USD 600
 Incluye:
 - Un asistente automático con IA que responde los mensajes (DMs de Instagram o
   chats de WhatsApp) de tus clientes las 24 horas.
